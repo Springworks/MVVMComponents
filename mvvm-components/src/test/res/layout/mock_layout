@@ -1,0 +1,8 @@
+<layout>
+    <data>
+        <import type="com.vhudnitsky.mvvmcomponents.mock.MockViewModel"/>
+        <variable name="viewModel"
+                  type="MockViewModel"
+        />
+    </data>
+</layout>
