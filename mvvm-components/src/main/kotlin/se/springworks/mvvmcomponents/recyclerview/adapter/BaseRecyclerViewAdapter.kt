@@ -5,17 +5,16 @@ import android.view.View
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import se.springworks.mvvmcomponents.recyclerview.holder.ItemViewHolder
-import se.springworks.mvvmcomponents.recyclerview.viewmodel.ItemViewModel
 
-abstract class BaseRecyclerViewAdapter<Model : Any, ViewModel : ItemViewModel<Model>>
-(private val items: MutableList<Model> = mutableListOf()) : RecyclerView.Adapter<ItemViewHolder<Model, ViewModel, *>>() {
+abstract class BaseRecyclerViewAdapter<Model : Any>
+(private val items: MutableList<Model> = mutableListOf()) : RecyclerView.Adapter<ItemViewHolder<Model>>() {
 
   private val itemClickSubject = PublishSubject.create<Model>()
   protected var observeClicks = true
 
   private lateinit var attachListener: View.OnAttachStateChangeListener
 
-  override fun onBindViewHolder(holder: ItemViewHolder<Model, ViewModel, *>, position: Int) {
+  override fun onBindViewHolder(holder: ItemViewHolder<Model>, position: Int) {
     val item = items[position]
     holder.bindTo(item, position)
   }
@@ -41,18 +40,18 @@ abstract class BaseRecyclerViewAdapter<Model : Any, ViewModel : ItemViewModel<Mo
   private fun initializeViewHolders(recyclerView: RecyclerView) {
     (0..itemCount)
         .mapNotNull { recyclerView.findViewHolderForAdapterPosition(it) }
-        .filterIsInstance<ItemViewHolder<*, *, *>>()
+        .filterIsInstance<ItemViewHolder<Model>>()
         .forEach { it.init() }
   }
 
   private fun releaseViewHolders(recyclerView: RecyclerView) {
     (0..itemCount)
         .mapNotNull { recyclerView.findViewHolderForAdapterPosition(it) }
-        .filterIsInstance<ItemViewHolder<*, *, *>>()
+        .filterIsInstance<ItemViewHolder<Model>>()
         .forEach { it.release() }
   }
 
-  override fun onViewAttachedToWindow(holder: ItemViewHolder<Model, ViewModel, *>) {
+  override fun onViewAttachedToWindow(holder: ItemViewHolder<Model>) {
     super.onViewAttachedToWindow(holder)
     holder.init()
     if (observeClicks) {
@@ -65,7 +64,7 @@ abstract class BaseRecyclerViewAdapter<Model : Any, ViewModel : ItemViewModel<Mo
     }
   }
 
-  override fun onViewDetachedFromWindow(holder: ItemViewHolder<Model, ViewModel, *>) {
+  override fun onViewDetachedFromWindow(holder: ItemViewHolder<Model>) {
     super.onViewDetachedFromWindow(holder)
     if (observeClicks) {
       holder.itemView.setOnClickListener(null)

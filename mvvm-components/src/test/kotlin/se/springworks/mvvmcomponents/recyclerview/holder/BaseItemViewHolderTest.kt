@@ -10,7 +10,7 @@ import org.junit.Test
 
 class BaseItemViewHolderTest {
 
-  private lateinit var viewHolder: BaseItemViewHolder<ViewDataBinding>
+  private lateinit var viewHolder: BaseItemViewHolder
 
   @Before
   fun setUp() {
