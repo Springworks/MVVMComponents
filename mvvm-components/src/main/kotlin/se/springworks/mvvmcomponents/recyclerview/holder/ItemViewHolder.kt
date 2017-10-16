@@ -8,15 +8,15 @@ import se.springworks.mvvmcomponents.recyclerview.viewmodel.ItemViewModel
 
 typealias BindingInflateFunction<DataBinding> = (inflater: LayoutInflater, root: ViewGroup, attachToRoot: Boolean) -> DataBinding
 
-open class BaseItemViewHolder<out DataBinding : ViewDataBinding>
-(val binding: DataBinding) : RecyclerView.ViewHolder(binding.root)
+open class BaseItemViewHolder
+(val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root)
 
-open class ItemViewHolder<in Model : Any, out ViewModel : ItemViewModel<Model>, out DataBinding : ViewDataBinding>(
+open class ItemViewHolder<in Model : Any>(
     parent: ViewGroup,
     layoutInflater: LayoutInflater,
-    bindingInflateFunction: BindingInflateFunction<DataBinding>,
-    private val viewModel: ViewModel)
-  : BaseItemViewHolder<DataBinding>(bindingInflateFunction.invoke(layoutInflater, parent, false)) {
+    bindingInflateFunction: BindingInflateFunction<ViewDataBinding>,
+    private val viewModel: ItemViewModel<Model>)
+  : BaseItemViewHolder(bindingInflateFunction.invoke(layoutInflater, parent, false)) {
 
   open fun init() {
     viewModel.initialize()

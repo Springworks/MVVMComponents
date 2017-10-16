@@ -15,7 +15,7 @@ import se.springworks.mvvmcomponents.recyclerview.viewmodel.ItemViewModel
 
 class ItemViewHolderTest {
 
-  private lateinit var viewHolder: ItemViewHolder<Unit, ItemViewModel<Unit>, ViewDataBinding>
+  private lateinit var viewHolder: ItemViewHolder<Unit>
 
   private lateinit var viewModel: ItemViewModel<Unit>
   private lateinit var viewBinding: ViewDataBinding
