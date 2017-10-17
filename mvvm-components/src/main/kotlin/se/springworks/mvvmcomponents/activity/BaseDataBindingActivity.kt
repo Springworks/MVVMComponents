@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import se.springworks.mvvmcomponents.viewmodel.ViewModelLifecycle
 
 abstract class BaseDataBindingActivity<DataBinding : ViewDataBinding, ViewModel : ViewModelLifecycle> : AppCompatActivity() {
-  protected lateinit var viewModel: ViewModel
+  lateinit var viewModel: ViewModel
 
   /*
   looks a bit ugly, but i found only this way to provide actual resource id which should be bounded

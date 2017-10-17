@@ -11,7 +11,7 @@ import se.springworks.mvvmcomponents.viewmodel.ViewModelLifecycle
 
 abstract class BaseDataBindingFragment<DataBinding : ViewDataBinding, ViewModel : ViewModelLifecycle> : Fragment() {
 
-  protected lateinit var viewModel: ViewModel
+  lateinit var viewModel: ViewModel
   /*
       looks a bit ugly, but i found only this way to provide actual resource id which should be bounded
       You should provide ${yourPackageName.BR.viewModel here}
@@ -34,7 +34,7 @@ abstract class BaseDataBindingFragment<DataBinding : ViewDataBinding, ViewModel 
     return createView(inflater, container, savedInstanceState)
   }
 
-  override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     viewModel.initialize()
   }
