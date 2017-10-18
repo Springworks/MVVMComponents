@@ -23,9 +23,6 @@ open class ItemViewHolder<in Model : Any>(
 
   init {
     binding.setVariable(getViewModelResID(), viewModel)
-  }
-
-  open fun init() {
     viewModel.initialize()
   }
 

@@ -26,7 +26,6 @@ abstract class BaseRecyclerViewAdapter<Model : Any>
 
     attachListener = object : View.OnAttachStateChangeListener {
       override fun onViewAttachedToWindow(p0: View) {
-        initializeViewHolders(recyclerView)
       }
 
       override fun onViewDetachedFromWindow(p0: View) {
@@ -35,13 +34,6 @@ abstract class BaseRecyclerViewAdapter<Model : Any>
     }
 
     recyclerView.addOnAttachStateChangeListener(attachListener)
-  }
-
-  private fun initializeViewHolders(recyclerView: RecyclerView) {
-    (0..itemCount)
-        .mapNotNull { recyclerView.findViewHolderForAdapterPosition(it) }
-        .filterIsInstance<ItemViewHolder<Model>>()
-        .forEach { it.init() }
   }
 
   private fun releaseViewHolders(recyclerView: RecyclerView) {
@@ -53,7 +45,6 @@ abstract class BaseRecyclerViewAdapter<Model : Any>
 
   override fun onViewAttachedToWindow(holder: ItemViewHolder<Model>) {
     super.onViewAttachedToWindow(holder)
-    holder.init()
     if (observeClicks) {
       holder.itemView.setOnClickListener {
         val pos = holder.adapterPosition
