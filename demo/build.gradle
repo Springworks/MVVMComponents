@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 android {
   compileSdkVersion 25
@@ -34,4 +35,6 @@ dependencies {
   compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
   compile "com.android.support:appcompat-v7:$supportLibraryVersion"
   compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
+  compile "io.reactivex:rxjava:$rxJavaVersion"
+  compile "io.reactivex:rxandroid:$rxAndroidVersion"
 }
