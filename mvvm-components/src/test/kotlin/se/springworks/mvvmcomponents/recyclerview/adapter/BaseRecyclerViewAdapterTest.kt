@@ -10,7 +10,6 @@ import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Before
 import org.junit.Test
-import se.springworks.mvvmcomponents.mock.MockViewBinding
 import se.springworks.mvvmcomponents.recyclerview.holder.BindingInflateFunction
 import se.springworks.mvvmcomponents.recyclerview.holder.ItemViewHolder
 import se.springworks.mvvmcomponents.recyclerview.viewmodel.StringItemViewModel
@@ -72,7 +71,9 @@ class BaseRecyclerViewAdapterTest {
   fun testOnViewDetachedFromWindowReleaseHolder() {
     val parentView = mock<ViewGroup>()
     val itemView = mock<View>()
-    val binding = MockViewBinding(itemView)
+    val binding = mock<ViewDataBinding> {
+      on { root } doReturn itemView
+    }
     val layoutInflater = mock<LayoutInflater>()
     val bindingInflateFunction = mock<BindingInflateFunction<ViewDataBinding>> {
       on { invoke(layoutInflater, parentView, false) } doReturn binding
