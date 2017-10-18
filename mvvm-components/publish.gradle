@@ -1,0 +1,71 @@
+group = 'se.springworks.mvvmcomponents'
+version = "1.0_${getDate()}"
+
+static def getLocalProperties() {
+  Properties properties = new Properties()
+  properties.load(new FileInputStream("mvvm-components/encrypted/bintray.properties"))
+  return properties
+}
+
+static def getDate() {
+  new Date().format('yyyyMMddHHmmssSSS')
+}
+
+bintray {
+  user = getLocalProperties().get("BINTRAY_USER")
+  key = getLocalProperties().get("BINTRAY_KEY")
+  configurations = ['archives']
+  pkg {
+    repo = 'MVVMComponents'
+    name = 'se.springworks.mvvmcomponents'
+    licenses = ['Apache-2.0']
+    vcsUrl = 'https://github.com/bintray/gradle-bintray-plugin.git'
+    version {
+      name = '1.0'
+      desc = 'MVVM Architecture Components'
+      released  = new Date()
+      vcsTag = version
+      attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+    }
+  }
+}
+
+
+install {
+  repositories.mavenInstaller {
+    pom.project {
+      name 'MVVMComponents'
+      description 'MVVM Architecture Components A set of main components to build MVVM Architecture on Android.'
+      url 'https://github.com/Springworks/MVVMComponents'
+      inceptionYear '2017'
+
+      packaging 'aar'
+      groupId group
+      artifactId 'mvvm-components'
+      version version
+
+      licenses {
+        license {
+          name 'The Apache Software License, Version 2.0'
+          url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+          distribution 'repo'
+        }
+      }
+      scm {
+        connection 'https://github.com/Springworks/MVVMComponents.git'
+        url 'https://github.com/Springworks/MVVMComponents'
+
+      }
+      developers {
+        developer {
+          name 'Springworks'
+        }
+      }
+    }
+  }
+}
+
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '3.3'
+}

@@ -4,29 +4,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-group = 'se.springworks'
-version = "1.0_${getDate()}"
-
-static def getLocalProperties() {
-  Properties properties = new Properties()
-  properties.load(new FileInputStream("mvvm-components/encrypted/bintray.properties"))
-  return properties
-}
-
-static def getDate() {
-  new Date().format('yyyyMMddHHmmssSSS')
-}
-
-bintray {
-  user = getLocalProperties().get("BINTRAY_USER")
-  key = getLocalProperties().get("BINTRAY_KEY")
-  pkg {
-    repo = 'MVVMComponents'
-    name = 'se.springworks.mvvmcomponents'
-    licenses = ['Apache-2.0']
-    vcsUrl = 'https://github.com/bintray/gradle-bintray-plugin.git'
-  }
-}
+apply from: 'publish.gradle'
 
 android {
   compileSdkVersion 25
