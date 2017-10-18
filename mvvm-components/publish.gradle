@@ -1,5 +1,7 @@
 group = 'se.springworks.mvvmcomponents'
 version = "1.0_${getDate()}"
+def siteUrl = 'https://github.com/Springworks/MVVMComponents'
+def gitUrl = 'https://github.com/Springworks/MVVMComponents.git'
 
 static def getLocalProperties() {
   Properties properties = new Properties()
@@ -18,14 +20,15 @@ bintray {
   pkg {
     repo = 'MVVMComponents'
     name = 'se.springworks.mvvmcomponents'
+    websiteUrl = siteUrl
+    vcsUrl = gitUrl
     licenses = ['Apache-2.0']
-    vcsUrl = 'https://github.com/bintray/gradle-bintray-plugin.git'
+    publish = true
     version {
-      name = '1.0'
-      desc = 'MVVM Architecture Components'
-      released  = new Date()
-      vcsTag = version
-      attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+      gpg {
+        sign = true
+        passphrase = getLocalProperties().get("BINTRAY_GPG_PASSPHRASE")
+      }
     }
   }
 }
@@ -34,15 +37,12 @@ bintray {
 install {
   repositories.mavenInstaller {
     pom.project {
+      packaging 'aar'
+      url siteUrl
+
       name 'MVVMComponents'
       description 'MVVM Architecture Components A set of main components to build MVVM Architecture on Android.'
-      url 'https://github.com/Springworks/MVVMComponents'
       inceptionYear '2017'
-
-      packaging 'aar'
-      groupId group
-      artifactId 'mvvm-components'
-      version version
 
       licenses {
         license {
@@ -52,17 +52,28 @@ install {
         }
       }
       scm {
-        connection 'https://github.com/Springworks/MVVMComponents.git'
-        url 'https://github.com/Springworks/MVVMComponents'
-
+        connection gitUrl
+        developerConnection gitUrl
+        url siteUrl
       }
       developers {
         developer {
+          id 'springworks'
           name 'Springworks'
+          email 'accounts'
         }
       }
     }
   }
+}
+
+task sourcesJar(type: Jar) {
+  from android.sourceSets.main.java.srcDirs
+  classifier = 'sources'
+}
+
+artifacts {
+  archives sourcesJar
 }
 
 
