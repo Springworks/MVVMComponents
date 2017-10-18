@@ -19,10 +19,13 @@ open class ItemViewHolder<in Model : Any>(
   : BaseItemViewHolder(bindingInflateFunction.invoke(layoutInflater, parent, false)) {
 
   // if you follow the rules it should always be 1, otherwise override it
-  protected fun getViewModelResID() = 1
+  open protected fun getViewModelResID() = 1
+
+  init {
+    binding.setVariable(getViewModelResID(), viewModel)
+  }
 
   open fun init() {
-    binding.setVariable(getViewModelResID(), viewModel)
     viewModel.initialize()
   }
 
