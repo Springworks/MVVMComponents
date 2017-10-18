@@ -80,7 +80,7 @@ class BaseRecyclerViewAdapterTest {
     }
     val viewModel = mock<StringItemViewModel>()
 
-    val holder = ItemViewHolder<String>(parentView, layoutInflater, bindingInflateFunction, viewModel)
+    val holder = ItemViewHolder(parentView, layoutInflater, bindingInflateFunction, viewModel)
     val holderSpy = spy(holder)
 
     adapter.onViewDetachedFromWindow(holderSpy)

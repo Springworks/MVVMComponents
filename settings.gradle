@@ -1,1 +1,2 @@
 include ':mvvm-components'
+rootProject.name = 'mvvm-components'

@@ -2,7 +2,9 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.Springworks'
+
+group = 'com.github.Springworks'
+version = '1.0_181017_0810'
 
 android {
     compileSdkVersion 25
