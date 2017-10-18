@@ -1,16 +1,16 @@
 package se.springworks.mvvmcomponents.fragment
 
+import android.databinding.ViewDataBinding
 import android.view.View
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
-import com.vhudnitsky.mvvmcomponents.databinding.StringItemBinding
 import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert
 import org.junit.Before
 import org.junit.Test
 import se.springworks.mvvmcomponents.recyclerview.viewmodel.StringItemViewModel
 
-class StubBaseDataBindingFragment : BaseDataBindingFragment<StringItemBinding, StringItemViewModel>() {
+class StubBaseDataBindingFragment : BaseDataBindingFragment<ViewDataBinding, StringItemViewModel>() {
   override fun resourceBRViewModelId(): Int {
     return 0
   }

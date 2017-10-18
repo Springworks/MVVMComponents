@@ -8,7 +8,7 @@ android {
   compileSdkVersion 25
   buildToolsVersion "25.0.3"
   defaultConfig {
-    minSdkVersion 19
+    minSdkVersion 16
     targetSdkVersion 25
     versionCode 1
     versionName "1.0"
@@ -39,8 +39,8 @@ dependencies {
   compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
   compile "com.android.support:appcompat-v7:$supportLibraryVersion"
   compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
-  compile "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
-  compile "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+  compile "io.reactivex:rxjava:$rxJavaVersion"
+  compile "io.reactivex:rxandroid:$rxAndroidVersion"
 
   testCompile "junit:junit:$junitVersion"
   testCompile("com.nhaarman:mockito-kotlin-kt1.1:$mockitoKotlinVersion") {

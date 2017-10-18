@@ -12,11 +12,18 @@ import org.junit.Before
 import org.junit.Test
 import se.springworks.mvvmcomponents.recyclerview.holder.BindingInflateFunction
 import se.springworks.mvvmcomponents.recyclerview.holder.ItemViewHolder
+import se.springworks.mvvmcomponents.recyclerview.viewmodel.EmptyItemViewModel
 import se.springworks.mvvmcomponents.recyclerview.viewmodel.StringItemViewModel
+
+class StubRecyclerViewAdapter(items: List<String>) : BaseRecyclerViewAdapter<String>(items.toMutableList()) {
+  override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder<String> {
+    return mock { }
+  }
+}
 
 class BaseRecyclerViewAdapterTest {
 
-  private lateinit var adapter: StringRecyclerViewAdapter
+  private lateinit var adapter: StubRecyclerViewAdapter
   private lateinit var items: List<String>
 
   class TestDataObserver : RecyclerView.AdapterDataObserver()
@@ -24,7 +31,7 @@ class BaseRecyclerViewAdapterTest {
   @Before
   fun setUp() {
     items = listOf("a", "b", "c", "d")
-    adapter = StringRecyclerViewAdapter(items)
+    adapter = StubRecyclerViewAdapter(items)
   }
 
   @Test
