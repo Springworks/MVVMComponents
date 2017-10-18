@@ -70,7 +70,6 @@ class BaseRecyclerViewAdapterTest {
     val holderSpy = spy(holder)
 
     adapter.onViewAttachedToWindow(holderSpy)
-    verify(holderSpy).init()
     verify(holderSpy.itemView).setOnClickListener(any())
   }
 

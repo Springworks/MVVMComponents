@@ -39,7 +39,6 @@ class ItemViewHolderTest {
 
   @Test
   fun testInitCallViewModelInit() {
-    viewHolder.init()
     verify(viewModel).initialize()
   }
 
