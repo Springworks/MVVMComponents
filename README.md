@@ -1,8 +1,6 @@
-# MVVM Architecture Components
+# MVVM Architecture Components[![Build Status](https://travis-ci.org/Springworks/MVVMComponents.svg?branch=master)](https://travis-ci.org/travis-ci/travis-build)
 
 A set of main components to build MVVM Architecture on Android.
-
-https://travis-ci.org/Springworks/MVVMComponents.svg?branch=master
 
 Main dependencies are:
  * Google Data Binding
