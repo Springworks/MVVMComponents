@@ -9,9 +9,9 @@ import se.springworks.mvvmcomponents.recyclerview.adapter.BaseRecyclerViewAdapte
 import se.springworks.mvvmcomponents.recyclerview.holder.ItemViewHolder
 
 class TripsAdapter : BaseRecyclerViewAdapter<Trip>() {
-    private val distanceFormatter = DistanceFormatter()
-    private val timeFormatter = TimeFormatter()
+  private val distanceFormatter = DistanceFormatter()
+  private val timeFormatter = TimeFormatter()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder<Trip> =
-            TripItemViewHolder(parent, distanceFormatter, timeFormatter)
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder<Trip> =
+      TripItemViewHolder(parent, distanceFormatter, timeFormatter)
 }

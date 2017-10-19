@@ -13,23 +13,23 @@ import se.springworks.mvvmcomponents.recyclerview.viewmodel.ItemViewModel
 class TripItemViewHolder(parent: ViewGroup,
                          distanceFormatter: DistanceFormatter,
                          timeFormatter: TimeFormatter)
-    : ItemViewHolder<Trip>(parent,
-                           LayoutInflater.from(parent.context),
-                           TripItemBinding::inflate,
-                           TripItemViewModel(distanceFormatter, timeFormatter))
+  : ItemViewHolder<Trip>(parent,
+                         LayoutInflater.from(parent.context),
+                         TripItemBinding::inflate,
+                         TripItemViewModel(distanceFormatter, timeFormatter))
 
 class TripItemViewModel(private val distanceFormatter: DistanceFormatter,
                         private val timeFormatter: TimeFormatter) : ItemViewModel<Trip>() {
 
-    val distance = ObservableField<String>()
-    val time = ObservableField<String>()
-    val address = ObservableField<String>()
+  val distance = ObservableField<String>()
+  val time = ObservableField<String>()
+  val address = ObservableField<String>()
 
-    override fun setItem(item: Trip, position: Int) {
-        val distanceInKm = distanceFormatter.formatToMetresToKm(item.distance)
-        distance.set("Distance: $distanceInKm km")
-        val timeInMinutes = timeFormatter.formatSecondsToMinutes(item.time)
-        time.set("Time: $timeInMinutes min")
-        address.set("${item.addressFrom} ${item.addressTo}")
-    }
+  override fun setItem(item: Trip, position: Int) {
+    val distanceInKm = distanceFormatter.formatToMetresToKm(item.distance)
+    distance.set("Distance: $distanceInKm km")
+    val timeInMinutes = timeFormatter.formatSecondsToMinutes(item.time)
+    time.set("Time: $timeInMinutes min")
+    address.set("${item.addressFrom} ${item.addressTo}")
+  }
 }
