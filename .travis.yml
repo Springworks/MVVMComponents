@@ -28,5 +28,5 @@ before_script:
   - emulator -avd test -no-audio -no-window &
 
 script:
-  - gradlew build lint test install -PdisablePreDex;
-  - gradlew bintrayUpload;
+  - ./gradlew build lint test install -PdisablePreDex;
+  - ./gradlew bintrayUpload;
