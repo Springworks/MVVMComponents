@@ -2,6 +2,8 @@
 
 A set of main components to build MVVM Architecture on Android.
 
+https://travis-ci.org/Springworks/MVVMComponents.svg?branch=master
+
 Main dependencies are:
  * Google Data Binding
  * Recycler View
