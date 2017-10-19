@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 android {
   compileSdkVersion 25
@@ -34,4 +35,17 @@ dependencies {
   compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
   compile "com.android.support:appcompat-v7:$supportLibraryVersion"
   compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
+  compile "io.reactivex:rxjava:$rxJavaVersion"
+  compile "io.reactivex:rxandroid:$rxAndroidVersion"
+
+  testCompile "junit:junit:$junitVersion"
+  testCompile("com.nhaarman:mockito-kotlin-kt1.1:$mockitoKotlinVersion") {
+    exclude group: 'org.jetbrains.kotlin'
+    exclude group: 'org.mockito'
+  }
+  testCompile("org.mockito:mockito-core:$mockitoVersion") {
+    exclude group: 'org.hamcrest'
+  }
+  testCompile "org.hamcrest:hamcrest-core:$hamcrestVersion"
+  testCompile "org.hamcrest:hamcrest-library:$hamcrestVersion"
 }
