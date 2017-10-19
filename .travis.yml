@@ -15,6 +15,9 @@ android:
   licenses:
        - 'android-sdk-license-.+'
 
+before_install:
+  - chmod +x gradlew
+
 before_script:
   - echo y | android update sdk --no-ui --all --filter extra-android-m2repository
   - echo y | android update sdk --no-ui --all --filter extra-android-support
@@ -25,5 +28,5 @@ before_script:
   - emulator -avd test -no-audio -no-window &
 
 script:
-  - ./gradlew build lint test install -PdisablePreDex;
-  - ./gradlew bintrayUpload;
+  - gradlew build lint test install -PdisablePreDex;
+  - gradlew bintrayUpload;
