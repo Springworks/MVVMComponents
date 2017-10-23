@@ -3,7 +3,7 @@
 
     <data>
 
-        <import type="se.springworks.mvvmcomponents.demo.main.item.viewmodel.TripItemViewModel"/>
+        <import type="se.springworks.mvvmcomponents.demo.trips.item.viewmodel.TripItemViewModel"/>
 
         <variable
             name="viewModel"

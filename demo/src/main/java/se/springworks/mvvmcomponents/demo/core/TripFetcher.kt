@@ -1,7 +1,7 @@
 package se.springworks.mvvmcomponents.demo.core
 
 import rx.Observable
-import se.springworks.mvvmcomponents.demo.main.item.model.Trip
+import se.springworks.mvvmcomponents.demo.trips.item.model.Trip
 import java.util.concurrent.TimeUnit
 
 open class TripFetcher(private val schedulesProvider: SchedulesProvider) {

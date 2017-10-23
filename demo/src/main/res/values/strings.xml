@@ -1,3 +1,5 @@
 <resources>
   <string name="app_name">demo</string>
+  <string name="oops_can_t_fetch_a_data_please_try_again_later">error_title</string>
+  <string name="error_retry_button">Retry</string>
 </resources>
