@@ -36,13 +36,6 @@ abstract class BaseRecyclerViewAdapter<Model : Any>
     recyclerView.addOnAttachStateChangeListener(attachListener)
   }
 
-  private fun releaseViewHolders(recyclerView: RecyclerView) {
-    (0..itemCount)
-        .mapNotNull { recyclerView.findViewHolderForAdapterPosition(it) }
-        .filterIsInstance<ItemViewHolder<Model>>()
-        .forEach { it.release() }
-  }
-
   override fun onViewAttachedToWindow(holder: ItemViewHolder<Model>) {
     super.onViewAttachedToWindow(holder)
     if (observeClicks) {
@@ -89,22 +82,29 @@ abstract class BaseRecyclerViewAdapter<Model : Any>
     notifyDataSetChanged()
   }
 
-  fun insertItems(newItems: List<Model>) {
+  open fun insertItems(newItems: List<Model>) {
     items.addAll(newItems)
     notifyItemRangeInserted(0, newItems.size)
   }
 
-  fun clearItems() {
+  open fun clearItems() {
     val count = items.count()
     items.clear()
     notifyItemRangeRemoved(0, count)
   }
 
-  fun addItem(newItem: Model) {
+  open fun addItem(newItem: Model) {
     items.add(newItem)
     notifyItemInserted(itemCount - 1)
   }
 
-  fun observeClickedItem(): Observable<Model> = itemClickSubject
+  open fun observeClickedItem(): Observable<Model> = itemClickSubject
+
+  private fun releaseViewHolders(recyclerView: RecyclerView) {
+    (0..itemCount)
+        .mapNotNull { recyclerView.findViewHolderForAdapterPosition(it) }
+        .filterIsInstance<ItemViewHolder<Model>>()
+        .forEach { it.release() }
+  }
 
 }

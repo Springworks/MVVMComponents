@@ -1,4 +1,4 @@
-package se.springworks.mvvmcomponents.demo.main.item.viewmodel
+package se.springworks.mvvmcomponents.demo.trips.item.viewmodel
 
 import android.databinding.ObservableField
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import se.springworks.mvvmcomponents.demo.core.DistanceFormatter
 import se.springworks.mvvmcomponents.demo.core.TimeFormatter
 import se.springworks.mvvmcomponents.demo.databinding.TripItemBinding
-import se.springworks.mvvmcomponents.demo.main.item.model.Trip
+import se.springworks.mvvmcomponents.demo.trips.item.model.Trip
 import se.springworks.mvvmcomponents.recyclerview.holder.ItemViewHolder
 import se.springworks.mvvmcomponents.recyclerview.viewmodel.ItemViewModel
 
