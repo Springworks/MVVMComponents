@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+  <data>
+
+    <import type="se.springworks.mvvmcomponents.demo.trip.viewmodel.TripDetailsViewModel"/>
+
+    <variable
+        name="viewModel"
+        type="TripDetailsViewModel"
+        />
+  </data>
+
+  <LinearLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="#fff"
+      android:paddingLeft="16dp"
+      android:paddingRight="16dp"
+      >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{viewModel.title, default=Title}"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{viewModel.distance, default=Subtitle}"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{viewModel.time, default=Time}"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/fetch_more_data_button"
+        android:onClick="@{viewModel::fetchMoreData}"
+        android:visibility="@{viewModel.fetchButtonVisibility}"
+        />
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="@{viewModel.progressVisibility}"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="@{viewModel.additionalDataVisibility}"
+        >
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@{viewModel.score, default=Score}"
+          android:layout_marginTop="16dp"
+          android:layout_marginBottom="8dp"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@{viewModel.averageTime, default=`Average Time`}"
+          android:layout_marginTop="8dp"
+          android:layout_marginBottom="8dp"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@{viewModel.rating, default=Rating}"
+          android:layout_marginTop="8dp"
+          android:layout_marginBottom="8dp"
+          />
+    </LinearLayout>
+  </LinearLayout>
+
+</layout>
