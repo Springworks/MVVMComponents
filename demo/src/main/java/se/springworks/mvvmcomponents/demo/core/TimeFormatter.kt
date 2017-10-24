@@ -1,5 +1,5 @@
 package se.springworks.mvvmcomponents.demo.core
 
-class TimeFormatter {
-  fun formatSecondsToMinutes(seconds: Int): Float = seconds / 60f
+open class TimeFormatter {
+  open fun formatSecondsToMinutes(seconds: Int): Float = seconds / 60f
 }

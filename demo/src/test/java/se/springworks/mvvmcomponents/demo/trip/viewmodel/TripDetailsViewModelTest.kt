@@ -30,5 +30,7 @@ class TripDetailsViewModelTest {
   @Test
   fun testInitializeInitialValues() {
     MatcherAssert.assertThat(viewModel.title.get(), equalTo("From To"))
+    MatcherAssert.assertThat(viewModel.distance.get(), equalTo("Distance : 1234.0 km"))
+    MatcherAssert.assertThat(viewModel.time.get(), equalTo("Time : 123.0 min"))
   }
 }
