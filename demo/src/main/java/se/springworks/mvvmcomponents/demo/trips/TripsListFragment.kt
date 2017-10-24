@@ -34,7 +34,7 @@ class TripsListFragment : BaseDataBindingFragment<TripsListFragmentBinding, Trip
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     adapter = viewModel.adapter
-    recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+    recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     recyclerView.adapter = adapter
   }
 

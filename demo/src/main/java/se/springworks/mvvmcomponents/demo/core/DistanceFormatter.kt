@@ -1,5 +1,5 @@
 package se.springworks.mvvmcomponents.demo.core
 
-class DistanceFormatter {
-  fun formatToMetresToKm(distanceInMetres: Int): Float = distanceInMetres / 1000f
+open class DistanceFormatter {
+  open fun formatToMetresToKm(distanceInMetres: Int): Float = distanceInMetres / 1000f
 }
