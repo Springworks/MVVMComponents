@@ -7,7 +7,7 @@ import rx.subjects.PublishSubject
 import se.springworks.mvvmcomponents.recyclerview.holder.ItemViewHolder
 
 abstract class BaseRecyclerViewAdapter<Model : Any>
-(private val items: MutableList<Model> = mutableListOf()) : RecyclerView.Adapter<ItemViewHolder<Model>>() {
+(protected val items: MutableList<Model> = mutableListOf()) : RecyclerView.Adapter<ItemViewHolder<Model>>() {
 
   private val itemClickSubject = PublishSubject.create<Model>()
   protected var observeClicks = true
