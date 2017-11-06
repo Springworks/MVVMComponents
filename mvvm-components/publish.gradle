@@ -80,3 +80,13 @@ artifacts {
 task wrapper(type: Wrapper) {
   gradleVersion = '3.3'
 }
+
+task uploadToBintray(){
+  def user = bintray.user
+  def key = bintray.key
+  if (user == null || key == null){
+    println("ERROR: Bintray User or Key is null. Can't publish")
+    return
+  }
+  bintrayUpload()
+}
