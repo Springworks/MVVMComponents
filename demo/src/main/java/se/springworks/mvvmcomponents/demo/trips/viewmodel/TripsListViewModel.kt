@@ -3,23 +3,24 @@ package se.springworks.mvvmcomponents.demo.trips.viewmodel
 import android.databinding.ObservableInt
 import android.support.v4.app.FragmentActivity
 import android.view.View
-import rx.subscriptions.CompositeSubscription
+import io.reactivex.disposables.CompositeDisposable
 import se.springworks.mvvmcomponents.demo.core.SchedulesProvider
 import se.springworks.mvvmcomponents.demo.core.TripFetcher
 import se.springworks.mvvmcomponents.demo.trips.TripsAdapter
 import se.springworks.mvvmcomponents.demo.trips.item.model.Trip
+import se.springworks.mvvmcomponents.recyclerview.adapter.ItemClickEvent
 import se.springworks.mvvmcomponents.viewmodel.ViewModelLifecycle
 
 class TripsListViewModel(private val activity: FragmentActivity,
                          private val tripFetcher: TripFetcher,
                          private val schedulesProvider: SchedulesProvider,
-                         private val onTripClicked: (trip: Trip) -> Unit,
+                         private val onTripClicked: (trip: ItemClickEvent<Trip>) -> Unit,
                          val adapter: TripsAdapter = TripsAdapter()) : ViewModelLifecycle {
 
   val tripsVisibility = ObservableInt()
   val progressVisibility = ObservableInt()
   val errorVisibility = ObservableInt()
-  private val subscription: CompositeSubscription = CompositeSubscription()
+  private val disposable: CompositeDisposable = CompositeDisposable()
 
   override fun initialize() {
     progressVisibility.set(View.GONE)
@@ -30,12 +31,12 @@ class TripsListViewModel(private val activity: FragmentActivity,
   override fun resume() {
     val itemClickSubscription = adapter.observeClickedItem()
         .subscribe(onTripClicked)
-    subscription.add(itemClickSubscription)
+    disposable.add(itemClickSubscription)
     fetchTrips()
   }
 
   override fun pause() {
-    subscription.unsubscribe()
+    disposable.clear()
   }
 
   override fun release() {
@@ -51,7 +52,7 @@ class TripsListViewModel(private val activity: FragmentActivity,
     val fetchSubscription = tripFetcher.fetchTrips()
         .observeOn(schedulesProvider.getUIScheduler())
         .subscribe(this::gotTrips, this::showError)
-    subscription.add(fetchSubscription)
+    disposable.add(fetchSubscription)
   }
 
   fun gotTrips(trips: List<Trip>) {

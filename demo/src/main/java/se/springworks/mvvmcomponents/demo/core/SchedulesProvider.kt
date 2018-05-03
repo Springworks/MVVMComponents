@@ -1,8 +1,8 @@
 package se.springworks.mvvmcomponents.demo.core
 
-import rx.Scheduler
-import rx.android.schedulers.AndroidSchedulers
-import rx.schedulers.Schedulers
+import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 open class SchedulesProvider {
   open fun getUIScheduler(): Scheduler = AndroidSchedulers.mainThread()

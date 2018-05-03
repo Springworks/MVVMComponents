@@ -11,7 +11,7 @@ typealias BindingInflateFunction<DataBinding> = (inflater: LayoutInflater, root:
 open class BaseItemViewHolder
 (val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root)
 
-open class ItemViewHolder<in Model : Any>(
+abstract class ItemViewHolder<in Model : Any>(
     parent: ViewGroup,
     layoutInflater: LayoutInflater,
     bindingInflateFunction: BindingInflateFunction<ViewDataBinding>,
@@ -19,7 +19,7 @@ open class ItemViewHolder<in Model : Any>(
   : BaseItemViewHolder(bindingInflateFunction.invoke(layoutInflater, parent, false)) {
 
   // if you follow the rules it should always be 1, otherwise override it
-  open protected fun getViewModelResID() = 1
+  abstract fun getViewModelResID(): Int
 
   init {
     binding.setVariable(getViewModelResID(), viewModel)

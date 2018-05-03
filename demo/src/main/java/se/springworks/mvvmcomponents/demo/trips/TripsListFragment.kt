@@ -12,6 +12,7 @@ import se.springworks.mvvmcomponents.demo.trip.TripDetailsFragment
 import se.springworks.mvvmcomponents.demo.trips.item.model.Trip
 import se.springworks.mvvmcomponents.demo.trips.viewmodel.TripsListViewModel
 import se.springworks.mvvmcomponents.fragment.BaseDataBindingFragment
+import se.springworks.mvvmcomponents.recyclerview.adapter.ItemClickEvent
 import kotlinx.android.synthetic.main.trips_list_fragment.main_recycler_view as recyclerView
 
 class TripsListFragment : BaseDataBindingFragment<TripsListFragmentBinding, TripsListViewModel>() {
@@ -38,10 +39,10 @@ class TripsListFragment : BaseDataBindingFragment<TripsListFragmentBinding, Trip
     recyclerView.adapter = adapter
   }
 
-  private fun openTripDetails(trip: Trip) {
+  private fun openTripDetails(event: ItemClickEvent<Trip>) {
     activity.supportFragmentManager
         .beginTransaction()
-        .add(R.id.main_fragment_container, TripDetailsFragment(trip), TripDetailsFragment::class.java.simpleName)
+        .add(R.id.main_fragment_container, TripDetailsFragment(event.item), TripDetailsFragment::class.java.simpleName)
         .addToBackStack(TripDetailsFragment::class.java.simpleName)
         .commit()
   }
