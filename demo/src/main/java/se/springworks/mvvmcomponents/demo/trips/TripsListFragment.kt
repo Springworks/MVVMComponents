@@ -25,7 +25,7 @@ class TripsListFragment : BaseDataBindingFragment<TripsListFragmentBinding, Trip
   override fun resourceBRViewModelId(): Int = BR.viewModel
 
   override fun provideViewModel(): TripsListViewModel
-      = TripsListViewModel(activity,
+      = TripsListViewModel(activity!!,
                            tripFetcher,
                            schedulersProvider,
                            this::openTripDetails)
@@ -40,10 +40,13 @@ class TripsListFragment : BaseDataBindingFragment<TripsListFragmentBinding, Trip
   }
 
   private fun openTripDetails(event: ItemClickEvent<Trip>) {
-    activity.supportFragmentManager
-        .beginTransaction()
-        .add(R.id.main_fragment_container, TripDetailsFragment(event.item), TripDetailsFragment::class.java.simpleName)
-        .addToBackStack(TripDetailsFragment::class.java.simpleName)
-        .commit()
+    val activity = activity
+    if (activity != null) {
+      activity.supportFragmentManager
+          .beginTransaction()
+          .add(R.id.main_fragment_container, TripDetailsFragment(event.item), TripDetailsFragment::class.java.simpleName)
+          .addToBackStack(TripDetailsFragment::class.java.simpleName)
+          .commit()
+    }
   }
 }
