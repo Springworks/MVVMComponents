@@ -2,14 +2,14 @@ package se.springworks.mvvmcomponents.recyclerview.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import rx.Observable
-import rx.subjects.PublishSubject
+import io.reactivex.Observable
+import io.reactivex.subjects.PublishSubject
 import se.springworks.mvvmcomponents.recyclerview.holder.ItemViewHolder
 
 abstract class BaseRecyclerViewAdapter<Model : Any>
 (protected val items: MutableList<Model> = mutableListOf()) : RecyclerView.Adapter<ItemViewHolder<Model>>() {
 
-  private val itemClickSubject = PublishSubject.create<Model>()
+  private val itemClickSubject = PublishSubject.create<ItemClickEvent<Model>>()
   protected var observeClicks = true
 
   private lateinit var attachListener: View.OnAttachStateChangeListener
@@ -42,7 +42,7 @@ abstract class BaseRecyclerViewAdapter<Model : Any>
       holder.itemView.setOnClickListener {
         val pos = holder.adapterPosition
         when (pos) {
-          in 0 until items.size -> itemClickSubject.onNext(items[pos])
+          in 0 until items.size -> itemClickSubject.onNext(ItemClickEvent(items[pos], pos))
         }
       }
     }
@@ -98,7 +98,7 @@ abstract class BaseRecyclerViewAdapter<Model : Any>
     notifyItemInserted(itemCount - 1)
   }
 
-  open fun observeClickedItem(): Observable<Model> = itemClickSubject
+  open fun observeClickedItem(): Observable<ItemClickEvent<Model>> = itemClickSubject
 
   private fun releaseViewHolders(recyclerView: RecyclerView) {
     (0..itemCount)
@@ -108,3 +108,5 @@ abstract class BaseRecyclerViewAdapter<Model : Any>
   }
 
 }
+
+data class ItemClickEvent<Model>(val item: Model, val position: Int)

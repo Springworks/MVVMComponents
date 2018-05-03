@@ -11,12 +11,12 @@ import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Before
 import org.junit.Test
 import se.springworks.mvvmcomponents.recyclerview.holder.BindingInflateFunction
+import se.springworks.mvvmcomponents.recyclerview.holder.DefaultTestItemViewHolder
 import se.springworks.mvvmcomponents.recyclerview.holder.ItemViewHolder
-import se.springworks.mvvmcomponents.recyclerview.viewmodel.EmptyItemViewModel
 import se.springworks.mvvmcomponents.recyclerview.viewmodel.StringItemViewModel
 
 class StubRecyclerViewAdapter(items: List<String>) : BaseRecyclerViewAdapter<String>(items.toMutableList()) {
-  override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder<String> {
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder<String> {
     return mock { }
   }
 }
@@ -66,7 +66,7 @@ class BaseRecyclerViewAdapterTest {
     }
     val viewModel = mock<StringItemViewModel>()
 
-    val holder = ItemViewHolder<String>(parentView, layoutInflater, bindingInflateFunction, viewModel)
+    val holder = DefaultTestItemViewHolder<String>(parentView, layoutInflater, bindingInflateFunction, viewModel)
     val holderSpy = spy(holder)
 
     adapter.onViewAttachedToWindow(holderSpy)
@@ -86,7 +86,7 @@ class BaseRecyclerViewAdapterTest {
     }
     val viewModel = mock<StringItemViewModel>()
 
-    val holder = ItemViewHolder(parentView, layoutInflater, bindingInflateFunction, viewModel)
+    val holder = DefaultTestItemViewHolder(parentView, layoutInflater, bindingInflateFunction, viewModel)
     val holderSpy = spy(holder)
 
     adapter.onViewDetachedFromWindow(holderSpy)

@@ -1,5 +1,6 @@
 package se.springworks.mvvmcomponents.demo.trip
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import se.springworks.mvvmcomponents.demo.BR
 import se.springworks.mvvmcomponents.demo.R
@@ -10,6 +11,7 @@ import se.springworks.mvvmcomponents.demo.trip.viewmodel.TripDetailsViewModel
 import se.springworks.mvvmcomponents.demo.trips.item.model.Trip
 import se.springworks.mvvmcomponents.fragment.BaseDataBindingFragment
 
+@SuppressLint("ValidFragment")
 class TripDetailsFragment(trip: Trip) : BaseDataBindingFragment<TripDetailsFragmentBinding, TripDetailsViewModel>() {
   private lateinit var trip: Trip
   private val timeFormatter = TimeFormatter()
@@ -27,7 +29,7 @@ class TripDetailsFragment(trip: Trip) : BaseDataBindingFragment<TripDetailsFragm
   }
 
   override fun onCreate(savedInstanceState: Bundle?) {
-    trip = arguments.getSerializable(TRIP_EXTRA) as? Trip ?: throw IllegalStateException("Trip should be provided")
+    trip = arguments?.getSerializable(TRIP_EXTRA) as? Trip ?: throw IllegalStateException("Trip should be provided")
     super.onCreate(savedInstanceState)
   }
 
