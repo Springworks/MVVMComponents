@@ -19,7 +19,7 @@ class TripsListViewModel(private val activity: FragmentActivity,
   val tripsVisibility = ObservableInt()
   val progressVisibility = ObservableInt()
   val errorVisibility = ObservableInt()
-  private val subscription: CompositeSubscription = CompositeSubscription()
+  private lateinit var subscription: CompositeSubscription
 
   override fun initialize() {
     progressVisibility.set(View.GONE)
@@ -28,6 +28,7 @@ class TripsListViewModel(private val activity: FragmentActivity,
   }
 
   override fun resume() {
+    subscription = CompositeSubscription()
     val itemClickSubscription = adapter.observeClickedItem()
         .subscribe(onTripClicked)
     subscription.add(itemClickSubscription)
