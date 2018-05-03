@@ -8,7 +8,7 @@ ext {
   databindingVersion = '3.0.1'
   livecycleVersion = '1.1.0'
 
-  supportLibraryVersion = '27.1.1'
+  supportLibraryVersion = '25.3.1'
   junitVersion = '4.12'
   mockitoKotlinVersion = '1.5.0'
   mockitoVersion = '2.17.0'
