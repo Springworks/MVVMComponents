@@ -17,6 +17,7 @@ android:
 
 before_install:
   - chmod +x gradlew
+  - yes | sdkmanager "platforms;android-27"
 
 before_script:
   - echo y | android update sdk --no-ui --all --filter extra-android-m2repository
