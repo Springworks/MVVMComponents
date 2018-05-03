@@ -5,10 +5,11 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 android {
-  compileSdkVersion 27
+  compileSdkVersion 26
+  buildToolsVersion '26.0.2'
   defaultConfig {
-    minSdkVersion 18
-    targetSdkVersion 27
+    minSdkVersion 19
+    targetSdkVersion 26
     versionCode 1
     versionName "1.0"
   }
@@ -34,13 +35,13 @@ android {
 }
 
 dependencies {
+  kapt "com.android.databinding:compiler:$databindingVersion"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
   implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
   implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
   implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
   implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
 
-  testImplementation "android.arch.lifecycle:extensions:$livecycleVersion"
   testImplementation "junit:junit:$junitVersion"
   testImplementation("com.nhaarman:mockito-kotlin-kt1.1:$mockitoKotlinVersion") {
     exclude group: 'org.jetbrains.kotlin'
