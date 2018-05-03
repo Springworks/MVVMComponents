@@ -4,7 +4,8 @@ ext {
   // App dependencies
   rxJavaVersion = '2.1.13'
   rxAndroidVersion = '2.0.2'
-  kotlinVersion = '1.2.40'
+  kotlinVersion = '1.2.41'
+  databindingVersion = '3.0.1'
   livecycleVersion = '1.1.0'
 
   supportLibraryVersion = '27.1.1'
@@ -24,8 +25,8 @@ buildscript {
     google()
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.1.2'
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.40"
+    classpath 'com.android.tools.build:gradle:3.0.1'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.41"
     classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
     classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
     // NOTE: Do not place your application dependencies here; they belong
