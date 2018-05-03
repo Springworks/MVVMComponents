@@ -40,6 +40,7 @@ dependencies {
   implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
   implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
 
+  testImplementation "android.arch.lifecycle:extensions:$livecycleVersion"
   testImplementation "junit:junit:$junitVersion"
   testImplementation("com.nhaarman:mockito-kotlin-kt1.1:$mockitoKotlinVersion") {
     exclude group: 'org.jetbrains.kotlin'

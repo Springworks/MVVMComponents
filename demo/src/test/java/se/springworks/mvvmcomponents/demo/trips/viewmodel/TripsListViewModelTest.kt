@@ -6,18 +6,19 @@ import android.view.ViewGroup
 import com.nhaarman.mockito_kotlin.doReturn
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
+import io.reactivex.Observable
+import io.reactivex.schedulers.TestScheduler
+import io.reactivex.subjects.BehaviorSubject
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Before
 import org.junit.Test
-import rx.Observable
-import rx.schedulers.TestScheduler
-import rx.subjects.BehaviorSubject
 import se.springworks.mvvmcomponents.demo.core.SchedulesProvider
 import se.springworks.mvvmcomponents.demo.core.TripFetcher
 import se.springworks.mvvmcomponents.demo.trips.TripsAdapter
 import se.springworks.mvvmcomponents.demo.trips.item.model.Trip
 import se.springworks.mvvmcomponents.recyclerview.adapter.BaseRecyclerViewAdapter
+import se.springworks.mvvmcomponents.recyclerview.adapter.ItemClickEvent
 import se.springworks.mvvmcomponents.recyclerview.holder.ItemViewHolder
 
 class TripsListViewModelTest {
@@ -34,7 +35,7 @@ class TripsListViewModelTest {
 
   private lateinit var activity: FragmentActivity
 
-  private lateinit var onItemClickClosure: (trip: Trip) -> Unit
+  private lateinit var onItemClickClosure: (trip: ItemClickEvent<Trip>) -> Unit
 
   private lateinit var adapter: TripsAdapter
 
@@ -53,7 +54,7 @@ class TripsListViewModelTest {
     }
     onItemClickClosure = mock()
     adapter = mock<TripsAdapter> {
-      on { observeClickedItem() } doReturn BehaviorSubject.create<Trip>()
+      on { observeClickedItem() } doReturn BehaviorSubject.create<ItemClickEvent<Trip>>()
     }
 
     viewModel = TripsListViewModel(activity, tripFetcher, schedulersProvider, onItemClickClosure, adapter)

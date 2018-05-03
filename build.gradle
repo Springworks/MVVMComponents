@@ -5,8 +5,9 @@ ext {
   rxJavaVersion = '2.1.13'
   rxAndroidVersion = '2.0.2'
   kotlinVersion = '1.2.40'
+  livecycleVersion = '1.1.0'
 
-  supportLibraryVersion = '27.0.1'
+  supportLibraryVersion = '27.1.1'
   junitVersion = '4.12'
   mockitoKotlinVersion = '1.5.0'
   mockitoVersion = '2.17.0'

@@ -31,7 +31,7 @@ class ItemViewHolderTest {
       on { invoke(layoutInflater, parent, false) } doReturn viewBinding
     }
     viewModel = mock()
-    viewHolder = ItemViewHolder(parent, layoutInflater, bindingInflateFunction, viewModel)
+    viewHolder = DefaultTestItemViewHolder(parent, layoutInflater, bindingInflateFunction, viewModel)
 
     verify(bindingInflateFunction).invoke(layoutInflater, parent, false)
     verify(viewBinding).root
@@ -54,11 +54,5 @@ class ItemViewHolderTest {
   fun testReleaseClearViewModel() {
     viewHolder.release()
     verify(viewModel).release()
-  }
-
-  @After
-  fun tearDown() {
-    verify(viewModel, never()).resume()
-    verify(viewModel, never()).pause()
   }
 }

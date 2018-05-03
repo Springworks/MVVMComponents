@@ -35,3 +35,12 @@ abstract class ItemViewHolder<in Model : Any>(
     viewModel.release()
   }
 }
+
+//Uses internally to test stuff
+open class DefaultTestItemViewHolder<in Model : Any>(
+    parent: ViewGroup,
+    layoutInflater: LayoutInflater,
+    bindingInflateFunction: BindingInflateFunction<ViewDataBinding>,
+    private val viewModel: ItemViewModel<Model>) : ItemViewHolder<Model>(parent, layoutInflater, bindingInflateFunction, viewModel) {
+  override fun getViewModelResID(): Int = 1
+}
