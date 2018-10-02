@@ -8,6 +8,7 @@ android {
   defaultConfig {
     applicationId "se.springworks.mvvmcomponents.demo"
     minSdkVersion 19
+    buildToolsVersion "28.0.3"
     targetSdkVersion 28
     versionCode 1
     versionName "1.0"
