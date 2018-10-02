@@ -1,6 +1,6 @@
 package se.springworks.mvvmcomponents.recyclerview.viewmodel
 
-import android.databinding.ObservableField
+import androidx.databinding.ObservableField
 
 open class StringItemViewModel : ItemViewModel<String>() {
   val value = ObservableField<String>()

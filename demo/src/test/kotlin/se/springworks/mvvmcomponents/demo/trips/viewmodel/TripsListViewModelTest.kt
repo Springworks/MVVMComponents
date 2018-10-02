@@ -1,8 +1,7 @@
 package se.springworks.mvvmcomponents.demo.trips.viewmodel
 
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.FragmentActivity
 import android.view.View
-import android.view.ViewGroup
 import com.nhaarman.mockito_kotlin.doReturn
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
@@ -17,9 +16,7 @@ import se.springworks.mvvmcomponents.demo.core.SchedulesProvider
 import se.springworks.mvvmcomponents.demo.core.TripFetcher
 import se.springworks.mvvmcomponents.demo.trips.TripsAdapter
 import se.springworks.mvvmcomponents.demo.trips.item.model.Trip
-import se.springworks.mvvmcomponents.recyclerview.adapter.BaseRecyclerViewAdapter
 import se.springworks.mvvmcomponents.recyclerview.adapter.ItemClickEvent
-import se.springworks.mvvmcomponents.recyclerview.holder.ItemViewHolder
 
 class TripsListViewModelTest {
 

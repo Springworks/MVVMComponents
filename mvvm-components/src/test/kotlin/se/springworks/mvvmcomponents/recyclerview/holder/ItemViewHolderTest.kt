@@ -1,14 +1,12 @@
 package se.springworks.mvvmcomponents.recyclerview.holder
 
-import android.databinding.ViewDataBinding
+import androidx.databinding.ViewDataBinding
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.nhaarman.mockito_kotlin.doReturn
 import com.nhaarman.mockito_kotlin.mock
-import com.nhaarman.mockito_kotlin.never
 import com.nhaarman.mockito_kotlin.verify
-import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import se.springworks.mvvmcomponents.recyclerview.viewmodel.ItemViewModel

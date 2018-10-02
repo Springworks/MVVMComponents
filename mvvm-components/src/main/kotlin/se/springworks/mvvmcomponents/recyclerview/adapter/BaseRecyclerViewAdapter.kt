@@ -1,6 +1,6 @@
 package se.springworks.mvvmcomponents.recyclerview.adapter
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject

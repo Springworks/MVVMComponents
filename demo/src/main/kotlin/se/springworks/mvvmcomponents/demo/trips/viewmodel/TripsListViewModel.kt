@@ -1,7 +1,7 @@
 package se.springworks.mvvmcomponents.demo.trips.viewmodel
 
-import android.databinding.ObservableInt
-import android.support.v4.app.FragmentActivity
+import androidx.databinding.ObservableInt
+import androidx.fragment.app.FragmentActivity
 import android.view.View
 import io.reactivex.disposables.CompositeDisposable
 import se.springworks.mvvmcomponents.demo.core.SchedulesProvider

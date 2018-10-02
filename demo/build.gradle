@@ -12,7 +12,7 @@ android {
     versionCode 1
     versionName "1.0"
 
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
   }
   buildTypes {
@@ -30,8 +30,8 @@ android {
 dependencies {
   implementation project(":mvvm-components")
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-  implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
-  implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
+  implementation "androidx.appcompat:appcompat:$androidXVersion"
+  implementation "androidx.recyclerview:recyclerview:$androidXVersion"
   implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
   implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
 

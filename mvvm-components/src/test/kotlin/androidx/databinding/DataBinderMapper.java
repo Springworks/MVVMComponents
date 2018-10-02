@@ -1,4 +1,4 @@
-package android.databinding;
+package androidx.databinding;
 
 /*
 Dirty hack to make tests work

@@ -1,6 +1,6 @@
 package se.springworks.mvvmcomponents.demo.trips.item.viewmodel
 
-import android.databinding.ObservableField
+import androidx.databinding.ObservableField
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import se.springworks.mvvmcomponents.demo.BR

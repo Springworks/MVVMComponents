@@ -1,7 +1,7 @@
 package se.springworks.mvvmcomponents.demo.trip.viewmodel
 
-import android.databinding.ObservableField
-import android.databinding.ObservableInt
+import androidx.databinding.ObservableField
+import androidx.databinding.ObservableInt
 import android.view.View
 import io.reactivex.Observable
 import se.springworks.mvvmcomponents.demo.core.DistanceFormatter
