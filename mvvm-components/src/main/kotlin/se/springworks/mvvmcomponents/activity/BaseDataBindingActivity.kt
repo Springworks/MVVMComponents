@@ -1,9 +1,9 @@
 package se.springworks.mvvmcomponents.activity
 
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import se.springworks.mvvmcomponents.viewmodel.ViewModelLifecycle
 
 abstract class BaseDataBindingActivity<DataBinding : ViewDataBinding, ViewModel : ViewModelLifecycle> : AppCompatActivity() {

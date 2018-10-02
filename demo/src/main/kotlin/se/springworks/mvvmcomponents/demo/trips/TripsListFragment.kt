@@ -1,7 +1,7 @@
 package se.springworks.mvvmcomponents.demo.trips
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.View
 import se.springworks.mvvmcomponents.demo.BR
 import se.springworks.mvvmcomponents.demo.R
@@ -35,7 +35,9 @@ class TripsListFragment : BaseDataBindingFragment<TripsListFragmentBinding, Trip
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     adapter = viewModel.adapter
-    recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+    recyclerView.layoutManager = LinearLayoutManager(context,
+                                                                                  LinearLayoutManager.VERTICAL,
+                                                                                  false)
     recyclerView.adapter = adapter
   }
 

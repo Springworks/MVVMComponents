@@ -1,6 +1,6 @@
 package se.springworks.mvvmcomponents.recyclerview.holder
 
-import android.databinding.ViewDataBinding
+import androidx.databinding.ViewDataBinding
 import android.view.View
 import com.nhaarman.mockito_kotlin.doReturn
 import com.nhaarman.mockito_kotlin.mock

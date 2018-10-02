@@ -1,5 +1,5 @@
 group = 'se.springworks.mvvmcomponents'
-version = "1.0_${getDate()}"
+version = "2.0_${getDate()}"
 def siteUrl = 'https://github.com/Springworks/MVVMComponents'
 def gitUrl = 'https://github.com/Springworks/MVVMComponents.git'
 

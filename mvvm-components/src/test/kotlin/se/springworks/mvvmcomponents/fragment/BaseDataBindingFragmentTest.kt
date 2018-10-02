@@ -1,6 +1,6 @@
 package se.springworks.mvvmcomponents.fragment
 
-import android.databinding.ViewDataBinding
+import androidx.databinding.ViewDataBinding
 import android.view.View
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
