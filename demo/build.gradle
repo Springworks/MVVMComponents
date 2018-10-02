@@ -4,12 +4,11 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-  compileSdkVersion 27
-
+  compileSdkVersion 28
   defaultConfig {
     applicationId "se.springworks.mvvmcomponents.demo"
-    minSdkVersion 18
-    targetSdkVersion 27
+    minSdkVersion 19
+    targetSdkVersion 28
     versionCode 1
     versionName "1.0"
 
