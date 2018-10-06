@@ -28,4 +28,21 @@ Main dependencies are:
    *Important* variable in xml should be named as `viewModel`, otherwise you need to override `getViewModelResID` in viewHolder to provide your own resouce ID.
    2.3 For each view model create view holder which extends from `ItemViewHolder`
   3. define method `onCreateViewHolder`, and return correct view holder depends of viewType
+  
+## Instalation
+
+Use latest version by Gradle:
+```
+implementation "se.springworks.mvvmcomponents:mvvm-components:$latestVersion"
+```
+or Maven:
+```
+<dependency>
+    <groupId>se.springworks.mvvmcomponents</groupId>
+    <artifactId>mvvm-components</artifactId>
+    <version>2.0_20181002150354488</version>
+</dependency>
+```
+You could always check the latest version [in MVNRepository](https://mvnrepository.com/artifact/se.springworks.mvvmcomponents/mvvm-components)
+
    
